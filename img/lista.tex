@@ -1,0 +1,35 @@
+\documentclass[border=2mm]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shadows}
+\usepackage{xifthen}
+% definitions for list
+\newcommand\boxsize{6mm}
+\tikzset
+  {cell/.style=
+    {inner sep=0pt,minimum width=\boxsize,minimum height=\boxsize,
+     drop shadow,fill=white},
+   ptr/.style={Circle-stealth,shorten <=-1.5pt}
+  }
+\newcommand\pointer[3][]%
+  {\node[draw,cell,#1] (#2) {};
+   \ifthenelse{\isempty{#3}}%
+     {\draw (#2.south west)--(#2.north east);}%
+     {\draw[ptr] (#2.center)--(#3);}
+  }
+\newcommand\element[4][]%
+  {\node[draw,cell,#1] (#2) {#3};
+   \node[draw,cell,xshift=\boxsize] (#2ptr) at (#2) {};
+   % labels: primo e resto
+   \node[above=0.2cm of #2.north east, anchor=east] {\tiny primo}; % Posiziona "primo" sopra la prima parte
+   \node[above=0.2cm of #2ptr.north west, anchor=west] {\tiny resto}; % Posiziona "resto" sopra la seconda parte
+      \ifthenelse{\isempty{#4}}%
+     {\draw (#2ptr.south west)--(#2ptr.north east);}%
+     {\draw[ptr] (#2ptr.center)--(#4);}
+  }
+\begin{document}
+\begin{tikzpicture}
+  \element{e2}{2}{}
+  \element[left=of e2]{e1}{1}{e2}
+  \element[left=of e1]{eP}{+}{e1}
+\end{tikzpicture}
+\end{document}
