@@ -1,67 +1,85 @@
 \documentclass[border=2mm]{standalone}
 
+\newlength{\mathsymwidth}
+\setlength{\mathsymwidth}{1.5pt}
+
 \newcommand{\zero}[1]{ % #1 sarà la coordinata x di partenza per il gruppo
   \foreach \x in {0} {
-    \filldraw[fill=white, opacity=0.5, draw=black,line width=0.4pt] (\x+#1,0) rectangle (\x+#1,1);
+    \filldraw[fill=white,opacity=0.5,draw=black,line width=0.4pt] (\x+#1,0) rectangle (\x+#1,1);
   }
-  \draw[line width=0.8pt] (#1,0) rectangle (#1,1);
+  \draw[line width=1.5pt] (#1,0) rectangle (#1,1);
+  \node (zeroLbl#1) at (#1, -0.5) {0};
 }
 
 \newcommand{\uno}[1]{ % #1 sarà la coordinata x di partenza per il gruppo
   \foreach \x in {0} {
     \filldraw[fill=white, opacity=0.5, draw=black,line width=0.4pt] (\x+#1,0) rectangle (\x+1+#1,1);
   }
-  \draw[line width=0.8pt] (#1,0) rectangle (1+#1,1);
+  \draw[line width=1.5pt] (#1,0) rectangle (1+#1,1);
+  \node (unoLbl#1) at (0.5+#1, -0.5) {1};
 }
 
 \newcommand{\due}[1]{ % #1 sarà la coordinata x di partenza per il gruppo
   \foreach \x in {0,1} {
     \filldraw[fill=red, opacity=0.5, draw=black,line width=0.4pt] (\x+#1,0) rectangle (\x+1+#1,1);
   }
-  \draw[line width=0.8pt] (#1,0) rectangle (2+#1,1);
+  \draw[line width=1.5pt] (#1,0) rectangle (2+#1,1);
+  \node (dueLbl#1) at (1+#1, -0.5) {2};
 }
 
 \newcommand{\tre}[1]{ % #1 sarà la coordinata x di partenza per il gruppo
   \foreach \x in {0,1,2} {
     \filldraw[fill=green, opacity=0.5, draw=black,line width=0.4pt] (\x+#1,0) rectangle (\x+1+#1,1);
   }
-  \draw[line width=0.8pt] (#1,0) rectangle (3+#1,1);
+  \draw[line width=1.5pt] (#1,0) rectangle (3+#1,1);
+  \node (treLbl#1) at (1.5+#1, -0.5) {3};
+}
+
+\newcommand{\quattroNoLbl}[1]{ % #1 sarà la coordinata x di partenza per il gruppo
+  \foreach \x in {0,1,2,3} {
+    \filldraw[fill=magenta, opacity=0.5, draw=black,line width=0.4pt] (\x+#1,0) rectangle (\x+1+#1,1);
+  }
+  \draw[line width=1.5,draw=black] (#1,0) rectangle (4+#1,1);
 }
 
 \newcommand{\quattro}[1]{ % #1 sarà la coordinata x di partenza per il gruppo
   \foreach \x in {0,1,2,3} {
     \filldraw[fill=magenta, opacity=0.5, draw=black,line width=0.4pt] (\x+#1,0) rectangle (\x+1+#1,1);
   }
-  \draw[line width=0.8pt] (#1,0) rectangle (4+#1,1);
+  \draw[line width=1.5pt] (#1,0) rectangle (4+#1,1);
+  \node (quattroLbl#1) at (2+#1, -0.5) {4};
 }
+
 
 \newcommand{\otto}[1]{
   \foreach \i in {0,1} {
-    \quattro{4*\i+#1};
+    \quattroNoLbl{4*\i+#1};
   }
-  \draw[line width=0.8pt] (#1,0) rectangle (8+#1,1);
+  %\draw[line width=1pt] (#1,0) rectangle (8+#1,1);
+  \node (ottoLbl#1) at (4+#1, -0.5) {8};
 }
 
 \newcommand{\dodici}[1]{
   \foreach \i in {0,1,2} {
-    \quattro{4*\i+#1};
+    \quattroNoLbl{4*\i+#1};
   }
-  \draw[line width=0.8pt] (#1,0) rectangle (12+#1,1);
+  %\draw[line width=1pt,dashed,draw=black] (#1,0) rectangle (12+#1,1);
+  \node (dodiciLbl#1) at (6+#1, -0.5) {12};
 }
 
 \newcommand{\duepunti}[1]{
-    \fill [black,opacity=1] (0.5+#1, 0.25) circle (2pt);
-    \fill [black,opacity=1] (0.5+#1, 0.75) circle (2pt);
+    \fill [black,opacity=1] (0.5+#1, 0.25) circle (\mathsymwidth);
+    \fill [black,opacity=1] (0.5+#1, 0.75) circle (\mathsymwidth);
 }
 
 \newcommand{\uguale}[1]{
-    \draw [black,opacity=1,line width=4pt] (0.15+#1, 0.25) -- (0.85+#1, 0.25);
-    \draw [black,opacity=1,line width=4pt] (0.15+#1, 0.75) -- (0.85+#1, 0.75);
+    \draw [black,opacity=1,line width=\mathsymwidth] (0.25+#1, 0.35) -- (0.75+#1, 0.35);
+    \draw [black,opacity=1,line width=\mathsymwidth] (0.25+#1, 0.65) -- (0.75+#1, 0.65);
 }
 
 \newcommand{\piu}[1]{
-    \draw [black,opacity=1,line width=4pt] (0.1+#1, 0.5) -- (0.9+#1, 0.5);
-    \draw [black,opacity=1,line width=4pt] (0.5+#1, 0.1) -- (0.5+#1, 0.9);
+    \draw [black,opacity=1,line width=\mathsymwidth] (0.2+#1, 0.5) -- (0.8+#1, 0.5);
+    \draw [black,opacity=1,line width=\mathsymwidth] (0.5+#1, 0.2) -- (0.5+#1, 0.8);
 }
 
 \usepackage{tikz}

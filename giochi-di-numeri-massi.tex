@@ -24,7 +24,7 @@
 \pagestyle{empty}
 \fontfamily{garamond}
 
-\title{Giochi di numeri:\\Pensiero Computazionale e Aritmetica}
+\title{Giochi di Numeri:\\Pensiero Computazionale e Aritmetica}
 
 \author{
 Gionata Massi%\inst{1}\thanks{Ha svolto il ruolo di formatore esperto.}
@@ -48,7 +48,7 @@ Gionata Massi%\inst{1}\thanks{Ha svolto il ruolo di formatore esperto.}
 \selectlanguage{italian}
 
 \begin{abstract}
-  Questo articolo presenta un'esperienza didattica focalizzata sullo sviluppo del pensiero ricorsivo attraverso la costruzione formale dell'aritmetica partendo da tre procedure primitive: il \emph{predicato zero}, che applicato ad un argomento restituisce \emph{vero} se l'argomento è 0, e le funzioni \emph{successore} e \emph{predecessore} che applicate ad un argomento $n$ restituiscono, rispettivamente, $n+1$ e $n-1$. Il corso guida gli studenti nella definizione ricorsiva delle operazioni aritmetiche fondamentali (addizione, sottrazione, moltiplicazione e divisione intera) e degli operatori di confronto (\emph{minore o uguale}, \emph{maggiore o uguale}, \emph{uguale}\textellipsis). L'azione didattica, ispirata dal testo ``The Little Schemer'' e concretizzata con l'uso del linguaggio \emph{Scheme}, mira a evidenziare la profonda connessione tra ragionamento logico-deduttivo, problem-solving informatico e procedure effettive di calcolo. Vengono discussi gli obiettivi, la metodologia adottata, gli strumenti utilizzati e le riflessioni sull'efficacia di tale percorso nel promuovere una comprensione più profonda dei concetti informatici e stimolare l'interesse verso le discipline scientifico-tecnologiche.
+  Questo articolo presenta un'esperienza didattica focalizzata sullo sviluppo del pensiero ricorsivo attraverso la costruzione formale dell'aritmetica partendo da tre procedure primitive: il \emph{predicato zero}, che applicato ad un argomento restituisce \emph{vero} se l'argomento è 0, e le funzioni \emph{successore} e \emph{predecessore} che applicate ad un argomento $n$ restituiscono, rispettivamente, $n+1$ e $n-1$. Il corso guida gli studenti nella definizione ricorsiva delle operazioni aritmetiche fondamentali (addizione, sottrazione, moltiplicazione e divisione intera) e degli operatori di confronto (\emph{minore o uguale}, \emph{maggiore o uguale}, \emph{uguale}, \textellipsis). L'azione didattica, ispirata dal testo ``The Little Schemer'' e concretizzata con l'uso del linguaggio \emph{Scheme}, mira a evidenziare la profonda connessione tra ragionamento logico-deduttivo, problem-solving informatico e procedure effettive di calcolo. Vengono discussi gli obiettivi, la metodologia adottata, gli strumenti utilizzati e le riflessioni sull'efficacia di tale percorso nel promuovere una comprensione più profonda dei concetti informatici e stimolare l'interesse verso le discipline scientifico-tecnologiche.
 \end{abstract}
 
 \section{Introduzione}\label{introduzione}
@@ -59,7 +59,7 @@ Il corso nasce proprio con l'intento di affrontare questa sfida, proponendo un p
 
 Il corso è stato sviluppato nell'ambito del progetto scolastico dell'IIS Savoia Benincasa ``Citizen scientists of the future'' (C.U.P. H34D23002330006), finanziato dal Piano Nazionale di Ripresa e Resilienza (PNRR), Missione 4 -- Istruzione e Ricerca, Investimento 3.1 ``Nuove competenze e nuovi linguaggi'' ed è stato rivolto agli studenti della classe seconda del Liceo Matematico.
 
-Le scelte metodologiche sono fortemente influenzare dalle opinioni personali dell'autore sulla necessità di usare un linguaggio di programmazione per esprimere le idee e di ricondurre il pensiero astratto alla manipolazione di oggetti fisici, quando possibile, per migliorare la comprensione degli oggetti di studio e dei metodi informatici.
+Le scelte metodologiche sono fortemente influenzate dalle opinioni personali dell'autore sulla necessità di usare un linguaggio di programmazione per esprimere le idee e di ricondurre il pensiero astratto alla manipolazione di oggetti fisici, quando possibile, per migliorare la comprensione degli oggetti di studio e dei metodi informatici.
 
 \begin{quote}
     "Il calcolatore era (ed è ancora) un nuovo e meraviglioso concetto filosofico e matematico. Il calcolatore è ancora più rivoluzionario come idea che come congegno pratico che modifica la società -- e tutti sappiamo quanto abbia cambiato la nostra vita. Perché lo dico? Perché il calcolatore cambia l'epistemologia, modifica il significato del verbo «comprendere». A mio giudizio, si capisce qualcosa solo se si è capaci -- noi, non altri! -- di scriverne il programma. Altrimenti non si ha una vera comprensione, si crede soltanto di capire."
@@ -74,7 +74,7 @@ Gli obiettivi generali del corso sono stati definiti per andare oltre la mera ac
  \item Comprendere meno superficialmente gli oggetti di studio e i metodi   della disciplina informatica.%
  % L'esposizione alla costruzione formale dell'aritmetica e alla logica ricorsiva sottostante mira a demistificare concetti che altrimenti potrebbero apparire come ``magie'' della tecnologia, rivelandone la rigorosa base matematica e logica.
   \item Stimolare l'interesse verso le materie tecnico scientifiche e, in   particolare, verso l'informatica.
-  \item Rendere tangibili e ``calcolabili'' alcuni concetti astratti come quelli alla base dell'aritmentica.
+  \item Rendere tangibili e ``calcolabili'' alcuni concetti astratti come quelli alla base dell'aritmetica.
   \item Cogliere la stretta relazione tra pensiero scientifico e informatica. % sviluppo   tecnologico. Attraverso la formalizzazione delle idee e la loro formalizzazione in un linguaggio di programmazioe, gli studenti possono apprezzare come il ragionamento astratto e la logica siano alla base dell'innovazione tecnologica.
  \item Comprendere le strutture fondamentali dei ragionamenti logico-deduttivi.
  \item Padroneggiare il linguaggio logico-formale per risolvere problemi di varia natura.
@@ -85,12 +85,12 @@ Gli obiettivi generali del corso sono stati definiti per andare oltre la mera ac
 
 \section{Metodologia e Strumenti}\label{metodologia-e-strumenti}
 
-Per perseguire questi obiettivi, è stato scelto un approccio basato sulla formalizzazione delle idee attraverso il linguaggio \emph{Scheme}. Esso ha una sintassi semplice che può essere interpreta con un modello di riscrittura delle espressioni, cosa che rende il linguaggio facile da visualizzare e comprendere. %, e può essere impiegato immediatamente per esplorare concetti come la ricorsione, l'astrazione e la manipolazione simbolica.
+Per perseguire questi obiettivi, è stato scelto un approccio basato sulla formalizzazione delle idee attraverso il linguaggio \emph{Scheme}. Esso ha una sintassi semplice che può essere interpretata con un modello di riscrittura delle espressioni, cosa che rende il linguaggio facile da visualizzare e comprendere. %, e può essere impiegato immediatamente per esplorare concetti come la ricorsione, l'astrazione e la manipolazione simbolica.
 % Alcuni importanti corsi di introduzione all'informatica utilizzano Scheme come linguaggio, e si citano due testi importanti nel loro corso di introduzione: ``Structure and Interpretation of Computer Programs''~\cite{} e ``How to Design Programs''~`\cite{}.
 
-Il corso si basa in gran parte sui primi quattro capitoli di ``The Little Schemer''~\cite{Friedman1995}, un testo che introduce il concetto di ricorsione in modo giocoso e incrementale, attraverso una serie di domande e risposte che guidano il lettore a ``scoprire'' le definizioni ricorsive. Questa scelta didattica è fondamentale: non ci sono ricette pronte ma si deve procedere in processo di scoperta attiva, dove lo schema cognitivo viene costruito e consolidato attraverso la costruzione della definizione che valuta la risposta.
+Il corso si basa in gran parte sui primi quattro capitoli di ``The Little Schemer''~\cite{Friedman1995}, un testo che introduce il concetto di ricorsione in modo giocoso e incrementale, attraverso una serie di domande e risposte che guidano il lettore a ``scoprire'' le definizioni ricorsive. Questa scelta didattica è fondamentale: non ci sono ricette pronte ma si deve procedere in un processo di scoperta attiva, dove lo schema cognitivo viene costruito e consolidato attraverso la costruzione della definizione che valuta la risposta.
 
-Per facilitare l'apprendimento e ridurre la barriera linguistica, le procedure di Scheme usate nel corso sono state tradotte in italiano\footnote{\texttt{cond} e \texttt{zero?} sono parole chiave che vengono usate nel corso ma non necessitano di traduzione.}, come mostrato nella tabella \ref{tbl:traduzioni}:
+Per facilitare l'apprendimento e ridurre la barriera linguistica, le procedure di Scheme usate nel corso sono state tradotte in italiano \footnote{\texttt{cond} e \texttt{zero?} sono parole chiave che vengono usate nel corso ma non necessitano di traduzione.}, come mostrato nella tabella \ref{tbl:traduzioni}:
 
 \begin{table}
   \centering
@@ -118,7 +118,7 @@ Il percorso costruisce progressivamente concetti, illustrando e sperimentando at
 
 \subsection{Atomi, Liste, Espressioni}\label{strutture-dati-e-espressioni}
 
-Il percoso si apre con la rappresentazione degli \emph{atomi} e delle \emph{liste} (fig.~\ref{fig:lista}). Viene illustrato l'isomorfismo con le \emph{espressioni simboliche} e queste vengono riscritte con l'operatore prefisso. L'espressione viene visualizzata come \emph{albero sintattico} (fig.~\ref{fig:albero}). La rappresentazione non è risultata intuitiva e si è introdotta la rappresentazione per cerchi della valutazione\footnote{Si veda il progetto \url{https://www.bootstrapworld.org/}{BootStrap}, corso \emph{Bootstrap: Algebra}, lezione \emph{Order of Operations} dove vengono introdotti i \emph{Circles of Evaluation}.} (fig.~\ref{fig:cerchio}). Viene fornito come macchina nozionale il modello per l'applicazione di procedure di SICP~\cite[par.~\mbox{1.1.5} The Substitution Model for Procedure Application]{Abelson1996}.
+Il percorso si apre con la rappresentazione degli \emph{atomi} e delle \emph{liste} (fig.~\ref{fig:lista}). Viene illustrato l'isomorfismo con le \emph{espressioni simboliche} e queste vengono riscritte con l'operatore prefisso. L'espressione viene visualizzata come \emph{albero sintattico} (fig.~\ref{fig:albero}). La rappresentazione non è risultata intuitiva e si è introdotta la rappresentazione per cerchi della valutazione \footnote{Si veda il progetto \url{https://www.bootstrapworld.org/}{BootStrap}, corso \emph{Bootstrap: Algebra}, lezione \emph{Order of Operations} dove vengono introdotti i \emph{Circles of Evaluation}.} (fig.~\ref{fig:cerchio}). Viene fornito come macchina nozionale il modello per l'applicazione di procedure di SICP~\cite[par.~\mbox{1.1.5} The Substitution Model for Procedure Application]{Abelson1996}.
 
 \begin{figure}
     \centering
@@ -126,7 +126,7 @@ Il percoso si apre con la rappresentazione degli \emph{atomi} e delle \emph{list
     \begin{subfigure}[t]{0.8\textwidth}
       \centering
       \includestandalone[width=.8\textwidth]{img/lista}
-      \caption{Espessioni come liste\label{fig:lista}}
+      \caption{Espressioni come liste\label{fig:lista}}
     \end{subfigure}
 
     \vspace{1em}
@@ -167,9 +167,9 @@ Il percoso si apre con la rappresentazione degli \emph{atomi} e delle \emph{list
 
 \subsection{Predicati, Espressione Condizionale e Liste di Atomi}\label{atomi-operatori-predicati-e-liste-di-atomi}
 
-Il modulo procede per domande da risolvere scrivendo e valutando espressioni in Scheme usando \href{https://www.wescheme.org/}{WeScheme}\footnote{Ambiente Scheme disponibile all'indirizzo: \url{https://www.wescheme.org/}.} con le traduzioni della tab.~\ref{tbl:traduzioni}. Le domande richiedono la manipolazione di atomi, valori booleani ed espressioni simboliche. Viene introdotta l'espressione condizione con \texttt{cond} e con questa, gradualmente, il concetto di ricorsione. Esempi sono predicati come \texttt{lista-di-atomi?} (fig~\ref{fig:lista-di-atomi?}) e \texttt{membro?}.
+Il modulo procede per domande da risolvere scrivendo e valutando espressioni in Scheme usando \href{https://www.wescheme.org/}{WeScheme}\footnote{Ambiente Scheme disponibile all'indirizzo: \url{https://www.wescheme.org/}.} con le traduzioni della tab.~\ref{tbl:traduzioni}. Le domande richiedono la manipolazione di atomi, valori booleani ed espressioni simboliche. Viene introdotta l'espressione condizione con \texttt{cond} e con questa, gradualmente, il concetto di ricorsione. Esempi sono predicati come \texttt{lista-di-atomi?} (fig.~\ref{fig:lista-di-atomi?}) e \texttt{membro?}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \begin{pygmented}[lang=scheme]
 ; Predicato lista-di-atomi?
@@ -217,11 +217,11 @@ Il modulo procede per domande da risolvere scrivendo e valutando espressioni in 
 
 \subsection{Manipolazione Ricorsiva delle Liste}\label{manipolazione-ricorsiva-delle-liste}
 
-Vengono proposte manipolazione più complesse delle liste, definendo funzioni come \texttt{rimuovi-un-membro}, \texttt{inserisci-a-destra} e \texttt{sostituisci} (fig.~\ref{fig:sostituisci})
+Vengono proposte manipolazioni più complesse delle liste, definendo funzioni come \texttt{rimuovi-un-membro}, \texttt{inserisci-a-destra} e \texttt{sostituisci} (fig.~\ref{fig:sostituisci})
 Ogni funzione è stata costruita ricorsivamente, enfatizzando il pattern base della ricorsione: un caso base (solitamente la \texttt{lista-vuota}) e un caso ricorsivo che opera
 sul \texttt{primo} elemento e invoca la funzione sul \texttt{resto} della lista. Questi esercizi consolidano la comprensione del \emph{pattern ricorsivo} e della sua applicazione a problemi di manipolazione dati.
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \begin{pygmented}[lang=scheme]
 ; Sostituisci nella lista-di-atomi il vecchio con il nuovo
@@ -229,8 +229,11 @@ sul \texttt{primo} elemento e invoca la funzione sul \texttt{resto} della lista.
   (lambda (nuovo vecchio lista-di-atomi)
     (cond
      [(lista-vuota? lista-di-atomi) lista-vuota]
-     [(uguale? (primo lista-di-atomi) vecchio) (anteponi nuovo (resto lista-di-atomi))]
-     [else (anteponi (primo lista-di-atomi) (sostituisci nuovo vecchio (resto lista-di-atomi)))])))
+     [(uguale? (primo lista-di-atomi) vecchio)
+            (anteponi nuovo (resto lista-di-atomi))]
+     [else (anteponi
+                (primo lista-di-atomi)
+                (sostituisci nuovo vecchio (resto lista-di-atomi)))])))
 
 ; Domanda: Sostituisci con * il + nella lista di atomi (+ 1 2)
 ; (sostituisci '* '+ '(+ 1 2))
@@ -262,18 +265,18 @@ Le definizioni delle procedure per l'aritmetica sono in fig.~\ref{fig:primitive-
   (lambda (n)
     (- n 1)))
 
-; Zero? è già definito dal linguaggio Scheme. 
+; Zero? è già definito dal linguaggio Scheme.
 
   \end{pygmented}
   \caption{Definizione delle primitive per la costruzione ricorsiva dell'aritmetica sugli interi}\label{fig:primitive-aritmetica}
 \end{figure}
 
-Attraverso i regoli Cuisenaire vengono mostrate le operazioni di \texttt{addizione}, \texttt{sottrazione}, \texttt{moltiplicazione}, \texttt{divisione} intera (fig.~\ref{fig:divisione-regoli}). Gli studenti devono trasformare le regole di manipolazione dei cubi bianchi in procedure simboliche (fig.~\ref{fig:divisione-scheme}).
+Attraverso i regoli Cuisenaire vengono mostrate le operazioni di \texttt{addizione}, \texttt{sottrazione}, \texttt{moltiplicazione}, \texttt{divisione} intera (in fig.~\ref{fig:divisione-regoli} si mostra il processo di sottrazioni ripetute per il calcolo di 12 diviso per 4). Gli studenti devono trasformare le regole di manipolazione dei cubi bianchi in procedure simboliche (fig.~\ref{fig:divisione-scheme}).
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includestandalone[width=.8\textwidth]{img/divisione}
-    \caption{Divisione con i regoli\label{fig:divisione-regoli}}
+    \caption{La divisione di 12 per 4 illustrata con i regoli Cuisenaire\label{fig:divisione-regoli}}
 \end{figure}
 
 
@@ -334,7 +337,7 @@ L'esperienza del percorso ha dimostrato l'efficacia di un approccio che pone il 
 Sebbene la curva di apprendimento iniziale possa essere ripida per alcuni, l'esperienza ha rivelato che, una volta compreso il paradigma ricorsivo, gli studenti acquisiscono una potente lente attraverso cui analizzare e risolvere una vasta gamma di problemi. Questo approccio non solo arricchisce il loro bagaglio di conoscenze tecniche, ma coltiva
 anche una mentalità critica e analitica.% , essenziale per navigare nel mondo sempre più complesso dell'informatica.
 
-In conclusione, percorso rappresenta un modello promettente per l'insegnamento del pensiero computazionale, dimostrando che un ritorno alle basi formali e la costruzione incrementale dei concetti, guidati da strumenti adeguati, possono portare a una comprensione più profonda e duratura delle discipline informatiche.
+In conclusione, questo percorso rappresenta un modello promettente per l'insegnamento del pensiero computazionale, dimostrando che un ritorno alle basi formali e la costruzione incrementale dei concetti, guidati da strumenti adeguati, possono portare a una comprensione più profonda e duratura delle discipline informatiche.
 
 \label{sect:bib}
 \printbibliography
